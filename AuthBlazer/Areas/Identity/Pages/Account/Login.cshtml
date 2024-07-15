@@ -1,0 +1,55 @@
+﻿@page 
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+
+<div class="row mt-4 border shadow " style="height: 55vh;">
+    <div class="col-md-6 bg-light w-50">
+        <section class="m-4">
+            <form id="account" method="post">
+                <h2 class="text-center m-3 mb-5" style="color:purple">log in</h2>
+                
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-floating my-4">
+                    <input asp-for="Input.Email" class="form-control rounded-pill" autocomplete="username" aria-required="true" />
+                    <label asp-for="Input.Email" class="form-label"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-1">
+                    <input asp-for="Input.Password" class="form-control rounded-pill" autocomplete="current-password" aria-required="true" />
+                    <label asp-for="Input.Password" class="form-label"></label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div>
+                    <div class="checkbox my-2">
+                        <label asp-for="Input.RememberMe" class="form-label">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 mt-5 rounded-pill text-white btn btn-lg " style="background-color:purple">Log in</button>
+                </div>
+                <div class="d-flex justify-content-between mt-2">
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2 w-50 d-flex justify-content-center align-items-center">
+       <img src="/blazor.png" alt="Picture" class="img-fluid" />
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

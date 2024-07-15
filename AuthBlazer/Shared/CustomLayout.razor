@@ -1,0 +1,35 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>Custom Layout</PageTitle>
+
+@using Radzen
+@using Radzen.Blazor
+
+<div class="top-row ps-3 navbar navbar-dark bg-dark text-white w-100">
+    <div class="container-fluid d-flex justify-content-between">
+        <div>
+            <a class="navbar-brand" href="">Easy Solutions</a>
+        </div>
+
+        <div class="d-flex">
+            <div class="d-flex me-5 mt-3 gap-3 border rounded-pill bg-white text-dark p-3 mb-2 me-2">
+                @if (LoginDisplay != null)
+                {
+                    @LoginDisplay
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="body-content container">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? LoginDisplay { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

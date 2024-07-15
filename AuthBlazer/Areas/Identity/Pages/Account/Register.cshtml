@@ -1,0 +1,43 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+<div class="row mt-5 border shadow rounded-5" style="height: 55vh;">
+    <div class="col-md-4 bg-light w-50">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2 class="text-center my-4 mb-5" style="color:rebeccapurple">Create a new account.</h2>
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating my-3 mt-5  mx-2">
+                <input asp-for="Input.Email" class="form-control rounded-pill" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.Email"></label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating  mx-2">
+                <input asp-for="Input.Password" class="form-control rounded-pill" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.Password"></label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating my-3  mx-2">
+                <input asp-for="Input.ConfirmPassword" class="form-control rounded-pill" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.ConfirmPassword"></label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <p class="ms-4">
+               <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">I have an account to Login</a>
+            </p>
+            <button id="registerSubmit" type="submit" class="w-100 mx-2 text-white btn btn-lg mt-3 rounded-pill"style="background-color:rebeccapurple">Register</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2 w-50 d-flex justify-content-center align-items-center">
+       <img src="/blazor.png" alt="Picture" class="img-fluid" />
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
