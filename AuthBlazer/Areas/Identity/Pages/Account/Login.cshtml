@@ -7,19 +7,18 @@
 
 
 <div class="row mt-4 border shadow " style="height: 55vh;">
-    <div class="col-md-6 bg-light w-50">
-        <section class="m-4">
+    <div class="col-md-6 bg-white w-50">
+        <section class="m-4 mt-5">
             <form id="account" method="post">
-                <h2 class="text-center m-3 mb-5" style="color:purple">log in</h2>
+                <h2 class="text-center m-3 mt-5 mb-5">log in</h2>
                 
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-floating my-4">
-                    <input asp-for="Input.Email" class="form-control rounded-pill" autocomplete="username" aria-required="true" />
-                    <label asp-for="Input.Email" class="form-label"></label>
+                <div class="form-floating my-4 mt-5">
+                    <input asp-for="Input.Email" class="form-control 
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-1">
-                    <input asp-for="Input.Password" class="form-control rounded-pill" autocomplete="current-password" aria-required="true" />
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
                     <label asp-for="Input.Password" class="form-label"></label>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
@@ -32,21 +31,21 @@
                     </div>
                 </div>
                 <div>
-                    <button id="login-submit" type="submit" class="w-100 mt-5 rounded-pill text-white btn btn-lg " style="background-color:purple">Log in</button>
+                    <button id="login-submit" type="submit" class="w-100 mt-5 btn-dark text-white btn btn-lg ">Login</button>
                 </div>
-                <div class="d-flex justify-content-between mt-2">
+                <div class="d-flex justify-content-between mt-3">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        <a id="forgot-password" asp-page="./ForgotPassword" style="text-decoration: none;"><span class="text-danger"><b>Forgot your password? </b></span></a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" style="text-decoration: none;"><b class="text-dark">Register?</b></a>
                     </p>
                 </div>
             </form>
         </section>
     </div>
     <div class="col-md-6 col-md-offset-2 w-50 d-flex justify-content-center align-items-center">
-       <img src="/blazor.png" alt="Picture" class="img-fluid" />
+       <img src="/image1-1.png" alt="Picture" class="img-fluid" />
     </div>
 </div>
 

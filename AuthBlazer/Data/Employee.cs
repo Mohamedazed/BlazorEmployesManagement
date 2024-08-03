@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AuthBlazer.Data
 {
@@ -21,5 +22,10 @@ namespace AuthBlazer.Data
         [Required(ErrorMessage = "Designation is required")]
         public string Designation { get; set; }
         public byte[]? ImagePath { get; set; }
+        [Required(ErrorMessage = "Salary is required")]
+        [Column(TypeName = "decimal(18, 2)")]
+        [Range(0, double.MaxValue, ErrorMessage = "Salary must be a positive number")]
+        public decimal Salary { get; set; }
+        public DateTime JoiningDate { get; set; }
     }
 }

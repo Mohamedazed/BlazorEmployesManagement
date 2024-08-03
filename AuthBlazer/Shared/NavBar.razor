@@ -2,9 +2,10 @@
 @inherits LayoutComponentBase
 @using Microsoft.AspNetCore.Components.Authorization
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@using AuthBlazer.Data
 
 <div class="top-row ps-3 navbar navbar-dark w-100">
-    <div class="container-fluid d-flex justify-content-between ">
+    <div class="container-fluid d-flex justify-content-between">
         <div>
             <a class="navbar-brand" href="">Crud1</a>
             <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -24,11 +25,20 @@
                     <RadzenImage Src="fotografia.png" Style="width: 40px; height: 40px; border-radius: 50%;" />
                 </Template>
                 <ChildContent>
-                    <p class="mt-3 mx-3">@user?.Identity?.Name</p>
-                    <hr />
-                    <RadzenProfileMenuItem Text="Profile" Path="/profile" Icon="account_circle"></RadzenProfileMenuItem>
-                    <RadzenProfileMenuItem Text="Employee" Path="Employees" Icon="line_weight"></RadzenProfileMenuItem>
-                    <RadzenProfileMenuItem Text="Setting" Path="/" Icon="attach_file"></RadzenProfileMenuItem>
+                    @if (user?.Identity?.IsAuthenticated ?? false)
+                    {
+                        <p class="mt-3 mx-3">@user?.Identity?.Name</p>
+                        <hr />
+                        <RadzenProfileMenuItem Text="Profile" Path="/profile" Icon="account_circle"></RadzenProfileMenuItem>
+                        <RadzenProfileMenuItem Text="Employee" Path="Employees" Icon="line_weight"></RadzenProfileMenuItem>
+                        <form method="post" action="Identity/Account/LogOut" class="d-inline">
+                        <RadzenProfileMenuItem Text="Log Out" Icon="logout" Path="Identity/Account/LogOut"></RadzenProfileMenuItem>
+                        </form>
+                    }
+                    else
+                    {
+                        <p class="mt-3 mx-3">Not authenticated</p>
+                    }
                 </ChildContent>
             </RadzenProfileMenu>
         </div>

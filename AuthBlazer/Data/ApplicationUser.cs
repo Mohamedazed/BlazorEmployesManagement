@@ -16,6 +16,8 @@ namespace AuthBlazer.Data
         [Required(ErrorMessage = "User name is required")]
         public override string Email { get; set; }
 
-        public byte[] ProfileImage { get; set; }
+        public byte[]? ProfileImage { get; set; }
+        public List<string> Roles { get; set; } = new List<string>();
+        public bool IsAdmin { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kFcMwAJHCjO24xVV25HVSeCQblxr8BsVWV2yLL7x+fM=",
+  "Hash": "CSI03t5MgBvAdvxfjGmly6puyQiMJfYDrL3gmZL7DQQ=",
   "Source": "AuthBlazer",
   "BasePath": "_content/AuthBlazer",
   "Mode": "Default",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\EasySolutions\\.nuget\\packages\\blazored.modal\\6.0.0\\staticwebassets\\blazored.modal.js",
+      "SourceId": "Blazored.Modal",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\EasySolutions\\.nuget\\packages\\blazored.modal\\6.0.0\\staticwebassets\\",
+      "BasePath": "_content/Blazored.Modal",
+      "RelativePath": "blazored.modal.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\EasySolutions\\.nuget\\packages\\blazored.modal\\6.0.0\\staticwebassets\\blazored.modal.js"
+    },
+    {
+      "Identity": "C:\\Users\\EasySolutions\\.nuget\\packages\\blazored.modal\\6.0.0\\staticwebassets\\blazored-modal.css",
+      "SourceId": "Blazored.Modal",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\EasySolutions\\.nuget\\packages\\blazored.modal\\6.0.0\\staticwebassets\\",
+      "BasePath": "_content/Blazored.Modal",
+      "RelativePath": "blazored-modal.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\EasySolutions\\.nuget\\packages\\blazored.modal\\6.0.0\\staticwebassets\\blazored-modal.css"
+    },
     {
       "Identity": "C:\\Users\\EasySolutions\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.29\\staticwebassets\\V5\\css\\site.css",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
@@ -2174,6 +2208,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fotografia.png"
+    },
+    {
+      "Identity": "C:\\Users\\EasySolutions\\Desktop\\Projets\\AuthBlazer\\AuthBlazer\\wwwroot\\Header-fondo-3a-1024x585.jpg",
+      "SourceId": "AuthBlazer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\EasySolutions\\Desktop\\Projets\\AuthBlazer\\AuthBlazer\\wwwroot\\",
+      "BasePath": "_content/AuthBlazer",
+      "RelativePath": "Header-fondo-3a-1024x585.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Header-fondo-3a-1024x585.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\EasySolutions\\Desktop\\Projets\\AuthBlazer\\AuthBlazer\\wwwroot\\image1-1.png",
+      "SourceId": "AuthBlazer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\EasySolutions\\Desktop\\Projets\\AuthBlazer\\AuthBlazer\\wwwroot\\",
+      "BasePath": "_content/AuthBlazer",
+      "RelativePath": "image1-1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image1-1.png"
+    },
+    {
+      "Identity": "C:\\Users\\EasySolutions\\Desktop\\Projets\\AuthBlazer\\AuthBlazer\\wwwroot\\User-Profile-PNG.png",
+      "SourceId": "AuthBlazer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\EasySolutions\\Desktop\\Projets\\AuthBlazer\\AuthBlazer\\wwwroot\\",
+      "BasePath": "_content/AuthBlazer",
+      "RelativePath": "User-Profile-PNG.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\User-Profile-PNG.png"
     }
   ]
 }

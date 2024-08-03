@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AuthBlazer.Data
@@ -32,13 +33,26 @@ namespace AuthBlazer.Data
 
             var adminUsers = await _userManager.GetUsersInRoleAsync(adminRole.Name);
 
-            // Cast to List<ApplicationUser> if necessary
             return adminUsers.ToList();
         }
 
         public async Task<int> GetTotalUserCountAsync()
         {
             return await _userManager.Users.CountAsync();
+        }
+
+        public async Task<List<string>> GetUserRolesAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                // Handle if user not found
+                return new List<string>();
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            return roles.ToList();
         }
     }
 }

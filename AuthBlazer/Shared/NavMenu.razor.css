@@ -56,7 +56,13 @@
     }
 
     .collapse {
-        /* Never collapse the sidebar for wide screens */
         display: block;
     }
+}
+
+#logout_sidebar_button {
+    position: absolute;
+    display: inline-block;
+    bottom: 80px;
+    margin-left: 45px;
 }

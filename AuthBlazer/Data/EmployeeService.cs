@@ -30,7 +30,9 @@ namespace AuthBlazer.Data
                     Phone = e.Phone,
                     City = e.City,
                     Designation = e.Designation,
-                    ImagePath = e.ImagePath ?? new byte[0]  // Provide a default value or handle nulls here
+                    Salary = e.Salary,
+                    JoiningDate = e.JoiningDate,
+                    ImagePath = e.ImagePath ?? new byte[0] 
                 })
                 .ToListAsync();
         }
@@ -99,6 +101,23 @@ namespace AuthBlazer.Data
 
             return count;
         }
+        public async Task<decimal> GetTotalSalary()
+        {
+            return await _applicationDbContext.Employees.SumAsync(e => e.Salary);
+        }
+        public async Task<List<SalaryByJoinDateData>> GetSalaryByJoinDate()
+        {
+            var result = await _applicationDbContext.Employees
+                .GroupBy(e => e.JoiningDate.Date)
+                .Select(g => new SalaryByJoinDateData
+                {
+                    JoinDate = g.Key,
+                    Salary = g.Sum(e => e.Salary)
+                })
+                .ToListAsync();
+
+            return result;
+        }
 
     }
 
@@ -106,6 +125,11 @@ namespace AuthBlazer.Data
     {
         public string City { get; set; }
         public int EmployeeCount { get; set; }
+    }
+    public class SalaryByJoinDateData
+    {
+        public DateTime JoinDate { get; set; }
+        public decimal Salary { get; set; }
     }
     public class EmployeeCountByDesignation
     {

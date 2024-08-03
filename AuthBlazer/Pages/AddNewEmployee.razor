@@ -12,57 +12,79 @@
 </div>
 <h3>Add New Employee</h3>
 <hr/>
-<EditForm Model="@obj" OnValidSubmit="@CreateEmployee">
+<EditForm Model="@obj" OnValidSubmit="@CreateEmployee" class="p-5 bg-white border shadow mt-4 m-1">
     <DataAnnotationsValidator />
     <ValidationSummary />
+    <div class="row">
+        <div class="form-group col-5">
+            <label for="fullName">Full Name:</label>
+            <InputText id="fullName" class="form-control" @bind-Value="@obj.FullName" placeholder="Enter full name"/>
+            <ValidationMessage For="@(() => obj.FullName)" />
+        </div>
 
-    <div class="form-group">
-        <label for="fullName">Full Name:</label>
-        <InputText id="fullName" class="form-control" @bind-Value="@obj.FullName" />
-        <ValidationMessage For="@(() => obj.FullName)" />
+        <div class="form-group col-7">
+            <label for="address">Address:</label>
+            <InputText id="address" class="form-control" @bind-Value="@obj.Address" placeholder="Enter address"/>
+            <ValidationMessage For="@(() => obj.Address)" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-7">
+            <label for="email">Email:</label>
+            <InputText id="email" class="form-control" @bind-Value="@obj.Email" placeholder="Enter email"/>
+            <ValidationMessage For="@(() => obj.Email)" />
+        </div>
+
+        <div class="form-group col-5">
+            <label for="phone">Phone:</label>
+            <InputText id="phone" class="form-control" @bind-Value="@obj.Phone" placeholder="Enter phone number"/>
+            <ValidationMessage For="@(() => obj.Phone)" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-4">
+            <label for="city">City:</label>
+            <InputText id="city" class="form-control" @bind-Value="@obj.City" placeholder="Enter city"/>
+            <ValidationMessage For="@(() => obj.City)" />
+        </div>
+
+        <div class="form-group col-4">
+            <label for="designation">Designation:</label>
+            <InputText id="designation" class="form-control" @bind-Value="@obj.Designation" placeholder="Enter designation"/>
+            <ValidationMessage For="@(() => obj.Designation)" />
+        </div>
+
+        <div class="form-group col-4">
+            <label for="image">Image:</label>
+            <InputFile id="image" class="form-control" OnChange="OnInputFileChange" placeholder="Choose image file"/>
+            <ValidationMessage For="@(() => imageFile)" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            <label for="salary">Salary:</label>
+            <div class="input-group mb-3">
+            <InputNumber id="salary" class="form-control" @bind-Value="@obj.Salary" placeholder="Enter salary"/>
+            <div class="input-group-append">
+                <span class="input-group-text bg-white" id="basic-addon2">DH</span>
+             </div>
+             </div>
+            <ValidationMessage For="@(() => obj.Salary)" />
+        </div>
+
+        <div class="form-group col-6">
+            <label for="joiningDate">Joining Date:</label>
+            <InputDate id="joiningDate" class="form-control" @bind-Value="@obj.JoiningDate" placeholder="Select joining date"/>
+            <ValidationMessage For="@(() => obj.JoiningDate)" />
+        </div>
     </div>
 
-    <div class="form-group">
-        <label for="address">Address:</label>
-        <InputText id="address" class="form-control" @bind-Value="@obj.Address" />
-        <ValidationMessage For="@(() => obj.Address)" />
-    </div>
-
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <InputText id="email" class="form-control" @bind-Value="@obj.Email" />
-        <ValidationMessage For="@(() => obj.Email)" />
-    </div>
-
-    <div class="form-group">
-        <label for="phone">Phone:</label>
-        <InputText id="phone" class="form-control" @bind-Value="@obj.Phone" />
-        <ValidationMessage For="@(() => obj.Phone)" />
-    </div>
-
-    <div class="form-group">
-        <label for="city">City:</label>
-        <InputText id="city" class="form-control" @bind-Value="@obj.City" />
-        <ValidationMessage For="@(() => obj.City)" />
-    </div>
-
-    <div class="form-group">
-        <label for="designation">Designation:</label>
-        <InputText id="designation" class="form-control" @bind-Value="@obj.Designation" />
-        <ValidationMessage For="@(() => obj.Designation)" />
-    </div>
-
-    <div class="form-group">
-        <label for="image">Image:</label>
-        <InputFile id="image" class="form-control" OnChange="OnInputFileChange" />
-        <ValidationMessage For="@(() => imageFile)" />
-    </div>
-
-    <div class="d-flex justify-content-end gap-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <input type="button" class="btn btn-danger" @onclick="@Cancel" value="Cancel"/>
+    <div class="d-flex justify-content-end gap-3 mt-3">
+        <input type="button" class="btn btn-white" @onclick="@Cancel" value="Cancel"/>
+        <button type="submit" class="btn btn-dark text-white">Submit</button>
     </div>
 </EditForm>
+
 
 @code {
     Employee obj = new Employee();

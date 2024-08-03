@@ -5,21 +5,21 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UserManager<IdentityUser> UserManager
 
-    <div class="mt-2 mb-5 me-4">
-        <RadzenBreadCrumb>
-            <RadzenBreadCrumbItem Path="/home" Text="Home" />
-            <RadzenBreadCrumbItem Path="/profile" Text="Profil"/>
-        </RadzenBreadCrumb>
-    </div>
+<div class="mt-2 mb-5 me-4">
+    <RadzenBreadCrumb>
+        <RadzenBreadCrumbItem Path="/home" Text="Home" />
+        <RadzenBreadCrumbItem Path="/profile" Text="Profil" />
+    </RadzenBreadCrumb>
+</div>
 
 @if (user != null)
-{   
+{
     <div class="row gap-3 ms-2">
-    <div class=" col-4 border shadow-sm bg-white text-center p-4">
-        <div class="text-center ">
-            <img src="fotografia.png" class="border rounded-circle shadow" width="100px"/><hr/>
-           </div>
-            <div class="mt-4 text-center gap-4 d-flex justify-content-center gap-3">
+        <div class=" col-4 border shadow-sm bg-dark text-center p-4">
+            <div class="text-center mt-2">
+                <img src="fotografia.png" class="border rounded-circle shadow mb-2" width="100px" /><hr class="mt-4"/>
+            </div>
+            <div class="mt-2 bordrd p-4 text-center bg-dark text-white gap-4 d-flex justify-content-center gap-3">
                 <div>
                     <p><strong>Email Id</strong></p>
                     <p><strong>Full Name</strong></p>
@@ -30,27 +30,32 @@
                     <p>@email</p>
                     <p>@phone</p>
                 </div>
-
             </div>
-    </div>
-    
-    <div class="bg-white p-2 col-7 border shadow-sm">
-    <h3 class="p-2 mt-2 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill me-2" viewBox="0 0 16 16">
-  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001"/>
-</svg> Edit Personal Infos</h3><hr/>
-    <form @onsubmit="HandleSubmit" class="p-2">
-        <div class="form-group">
-            <label for="userName">User Name</label>
-            <input type="text" class="form-control" id="userName" @bind="email" />
         </div>
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" @bind="userName" />
+
+        <div class="bg-white p-2 col-7 border shadow-sm">
+            <h3 class="p-2 mt-2 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill me-2" viewBox="0 0 16 16">
+                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001" />
+                </svg> Edit Personal Infos
+            </h3><hr />
+            <form @onsubmit="HandleSubmit" class="p-2">
+                <div class="form-group">
+                    <label for="userName">User Name</label>
+                    <input type="text" class="form-control" id="userName" @bind="email" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" @bind="userName" />
+                </div>
+                <div class="form-group">
+                    <label for="PhoneNumber">Phone Number</label>
+                    <input type="tel" class="form-control" id="PhoneNumber" @bind="phone" />
+                </div>
+                <button type="submit" class="btn btn-dark text-white shadow-sm mt-2 w-100">Save</button>
+            </form>
         </div>
-        <button type="submit" class="btn btn-dark text-white shadow-sm mt-2 w-100">Save</button>
-    </form>
     </div>
-</div>
 }
 else
 {
@@ -62,6 +67,7 @@ else
     private string userName;
     private string email;
     private string phone;
+
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
@@ -87,8 +93,7 @@ else
         {
             currentUser.UserName = userName;
             currentUser.Email = email;
-            currentUser.NormalizedUserName = UserManager.NormalizeName(userName);
-            currentUser.NormalizedEmail = UserManager.NormalizeEmail(email);
+            currentUser.PhoneNumber = phone; // Update phone number
 
             var result = await UserManager.UpdateAsync(currentUser);
 

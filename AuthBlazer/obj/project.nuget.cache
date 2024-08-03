@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "AfdJXjAVGsRRdcyyVqx8RD9GkhrmSWaBFU1R7k47n1unqaSCbep9FJrlTTHRKETdoot5Jds/Du3fpCkur+xaRw==",
+  "dgSpecHash": "n1m4/iYWN6XrLKGGWWllQpcvXfkQr9TZaAsCriKoecyLL3Acd3LUTOwnCcERhduHjxqUpNEbVSVgRtRsU3RLuQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\EasySolutions\\Desktop\\Projets\\AuthBlazer\\AuthBlazer\\AuthBlazer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EasySolutions\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\EasySolutions\\.nuget\\packages\\azure.identity\\1.10.2\\azure.identity.1.10.2.nupkg.sha512",
+    "C:\\Users\\EasySolutions\\.nuget\\packages\\blazored.modal\\6.0.0\\blazored.modal.6.0.0.nupkg.sha512",
     "C:\\Users\\EasySolutions\\.nuget\\packages\\dartsassbuilder\\1.0.0\\dartsassbuilder.1.0.0.nupkg.sha512",
     "C:\\Users\\EasySolutions\\.nuget\\packages\\htmlagilitypack\\1.11.61\\htmlagilitypack.1.11.61.nupkg.sha512",
     "C:\\Users\\EasySolutions\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
@@ -121,6 +122,7 @@
     "C:\\Users\\EasySolutions\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.8.0\\microsoft.identitymodel.protocols.openidconnect.6.8.0.nupkg.sha512",
     "C:\\Users\\EasySolutions\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
     "C:\\Users\\EasySolutions\\.nuget\\packages\\microsoft.jsinterop\\6.0.0\\microsoft.jsinterop.6.0.0.nupkg.sha512",
+    "C:\\Users\\EasySolutions\\.nuget\\packages\\microsoft.jsinterop.webassembly\\3.2.1\\microsoft.jsinterop.webassembly.3.2.1.nupkg.sha512",
     "C:\\Users\\EasySolutions\\.nuget\\packages\\microsoft.net.stringtools\\17.3.2\\microsoft.net.stringtools.17.3.2.nupkg.sha512",
     "C:\\Users\\EasySolutions\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\EasySolutions\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

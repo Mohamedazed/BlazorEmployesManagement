@@ -8,7 +8,7 @@
 @attribute [Authorize(Roles = "Admin")]
 
 <div class="">
-    <div class="mt-2 mb-5 me-4">
+    <div class="mt-2 mb-3 me-4">
         <RadzenBreadCrumb>
             <RadzenBreadCrumbItem Path="/home" Text="Home" />
             <RadzenBreadCrumbItem Path="/Employees" Text="Employees"/>
@@ -17,7 +17,7 @@
 </div>
 <div class="">
     <div class="d-flex justify-content-between mb-3">
-        <h3>Employees List</h3>
+        <h3 class="pt-2">Employees List</h3>
         <NavLink class="btn btn-dark text-white" href="AddNewEmployee">
             <span class="me-2 pointer-event oi-plus" aria-hidden="true"><b class="ms-2">New Employee</b></span>
         </NavLink>
@@ -30,7 +30,7 @@
     }
     else
     {
-        <RadzenDataGrid TItem="Employee" AllowFiltering="true" AllowColumnResize="true" AllowPaging="true" PageSize="9"
+        <RadzenDataGrid TItem="Employee" AllowFiltering="true" AllowColumnResize="true" AllowPaging="true" PageSize="7"
                         class="bg-danger text-center" Data="@EmpObj" AllowSorting="true" FilterMode="FilterMode.Simple"
                         PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true" ColumnWidth="300"
                         LogicalFilterOperator="LogicalFilterOperator.Or" SelectionMode="DataGridSelectionMode.Single">
@@ -38,8 +38,16 @@
                 <RadzenDataGridColumn TItem="Employee" Title="Avatar & Full Name" Width="160px">
                     <Template Context="employee">
                         <div class="d-flex justify-content-start align-items-center">
-                            <img src="data:image;base64,@Convert.ToBase64String(employee.ImagePath)" class="border shadow-sm rounded-pill"
-                                 alt="Employee Image" style="max-width: 50px; margin-right: 10px;" />
+                            @if (employee.ImagePath != null && employee.ImagePath.Length > 0)
+                            {
+                                <img src="data:image;base64,@Convert.ToBase64String(employee.ImagePath)" class="border shadow-sm rounded-pill"
+                                     alt="Employee Image" style="max-width: 50px; margin-right: 10px;" />
+                            }
+                            else
+                            {
+                                <img src="/User-Profile-PNG.png" class="border shadow-sm rounded-pill"
+                                     alt="Default Employee Image" style="max-width: 50px; margin-right: 10px;" />
+                            }
                             <h4><b>@employee.FullName</b></h4>
                         </div>
                     </Template>
@@ -49,6 +57,8 @@
                 <RadzenDataGridColumn TItem="Employee" Property="Phone" Title="Phone" />
                 <RadzenDataGridColumn TItem="Employee" Property="City" Title="City" />
                 <RadzenDataGridColumn TItem="Employee" Property="Designation" Title="Designation" />
+                <RadzenDataGridColumn TItem="Employee" Property="Salary" Title="Salary" />
+                <RadzenDataGridColumn TItem="Employee" Property="JoiningDate" Title="Joining Date" />
                 <RadzenDataGridColumn>
                     <Template Context="employee">
                         <div class="ms-1 d-flex justify-content-center gap-2">
@@ -61,7 +71,7 @@
                             <button class="rounded-circle shadow-sm btn " @onclick="@(async () => await DeleteEmployee(employee.Id))">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
                                       <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
-                                    </svg>
+                              </svg>
                             </button>
                         </div>
                     </Template>
